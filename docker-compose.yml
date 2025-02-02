@@ -1,0 +1,12 @@
+services:
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      #example config
+      POSTGRES_USER: my_user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: digimon_db
+    ports:
+      - "5432:5432"  # Expose MySQL port to the host
