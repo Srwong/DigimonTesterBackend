@@ -16,6 +16,7 @@ java {
 
 repositories {
 	mavenCentral()
+	maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
@@ -24,9 +25,20 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-rest")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+
+	//SQL with flyway
 	implementation("org.flywaydb:flyway-database-postgresql:10.20.1")
 	implementation("org.postgresql:postgresql")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+	// Add MongoDB
+	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+
+	// Add Mongock for NOSQL migrations
+	implementation("io.mongock:mongock-springboot-v3:5.3.2")
+	implementation("io.mongock:mongodb-springdata-v3-driver:5.3.2")
 
 	// Kotlin support
 	implementation("org.jetbrains.kotlin:kotlin-reflect")

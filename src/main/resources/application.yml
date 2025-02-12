@@ -1,4 +1,10 @@
 spring:
+  #Mongo
+  data:
+    mongodb:
+      uri: mongodb://user:pass@mongo-db:27017/digimon_db?authSource=admin
+      database: digimon_db
+  # SQL
   datasource:
     url: jdbc:postgresql://localhost:5432/digimon_db
     username: my_user
@@ -7,9 +13,9 @@ spring:
     hibernate:
       ddl-auto: validate
     show-sql: true
-    #h2:
-    #  console:
-    #    enabled: true
+    h2:
+      console:
+        enabled: true
   flyway:
     enabled: true  # Enable Flyway for database migrations
     locations: classpath:db/migration  # Location of Flyway migration scripts
