@@ -1,27 +1,24 @@
 package mahp.digimon.models
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
 import mahp.digimon.enums.CardType
 import mahp.digimon.enums.Color
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Column
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
+@Table("card")
 data class Card (
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     val id: Int? = 0,
     val name: String,
     val code: String,
     val color: String,
     val type: String,
-    @Column(name = "memory_cost")
+    @Column
     val memoryCost: Int,
-    @Column(name = "main_text")
+    @Column
     val mainText: String,
-    @Column(name = "lower_text")
+    @Column
     val lowerText: String,
     val level: Int? = null,
 ) {

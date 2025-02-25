@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 
 @RestController
 @RequestMapping("/cards")
@@ -17,14 +19,12 @@ class CardController(
     private val cardService: CardService,
 ) {
     @GetMapping
-    fun getCards(): ResponseEntity<List<Card>>{
-        val cards = cardService.getAllCards()
-        return ResponseEntity.ok().body(cards)
+    fun getCards(): Flux<Card> {
+        return cardService.getAllCards()
     }
 
     @PostMapping
-    fun addCard(@RequestBody card: CardDTO): ResponseEntity<HttpStatus>{
-        val status = cardService.addCard(card)
-        return ResponseEntity.status(HttpStatus.CREATED).body(HttpStatus.CREATED)
+    fun addCard(@RequestBody card: CardDTO): Mono<String> {
+        return cardService.addCard(card)
     }
 }

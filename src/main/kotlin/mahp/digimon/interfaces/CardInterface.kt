@@ -1,10 +1,11 @@
 package mahp.digimon.interfaces
 
 import mahp.digimon.models.Card
-import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import org.springframework.stereotype.Repository
+import reactor.core.publisher.Mono
 
 @Repository
-interface CardInterface: JpaRepository<Card, Int> {
-    fun getCardById(id: Int): Card
+interface CardInterface: ReactiveCrudRepository<Card, Int> {
+    fun getCardById(id: Int): Mono<Card>
 }

@@ -1,13 +1,10 @@
 spring:
   # SQL
-  datasource:
-    url: jdbc:postgresql://localhost:5432/digimon_db
-    username: my_user
-    password: password
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    show-sql: true
   flyway:
     enabled: true  # Enable Flyway for database migrations
     locations: classpath:db/migration  # Location of Flyway migration scripts
+    url: jdbc:postgresql://localhost:5432/digimon_db
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/digimon_db
+    username: my_user
+    password: password

@@ -20,14 +20,21 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	//implementation("org.springframework.boot:spring-boot-starter-data-jpa") //jpa
+	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 	implementation("org.springframework.boot:spring-boot-starter-data-rest")
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	//implementation("org.springframework.boot:spring-boot-starter-web") //normal spring
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 
+	//flyway
+	implementation("org.springframework.boot:spring-boot-starter-jdbc")
 	implementation("org.flywaydb:flyway-database-postgresql:10.20.1")
+
+	//sql
 	implementation("org.postgresql:postgresql")
+	implementation("org.postgresql:r2dbc-postgresql:1.0.7.RELEASE")
 
 	// Kotlin support
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -35,6 +42,7 @@ dependencies {
 
 	// Testing
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("io.projectreactor:reactor-test")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
