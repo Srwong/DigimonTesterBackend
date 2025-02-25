@@ -1,4 +1,4 @@
-CREATE TABLE Card (
+CREATE TABLE card (
     id SERIAL PRIMARY KEY,
     name VARCHAR(40),
     code VARCHAR(8),
@@ -10,5 +10,5 @@ CREATE TABLE Card (
     level INT
 );
 
-INSERT INTO Card(name, code, memory_cost, color, type, main_text, lower_text, level)
+INSERT INTO card(name, code, memory_cost, color, type, main_text, lower_text, level)
 VALUES ('asd','12d',1,'PURPLE','EGG','maksdmaksmdkasmdks','aksmdkasfmkmfk',1);
