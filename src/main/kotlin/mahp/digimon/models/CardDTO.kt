@@ -2,6 +2,7 @@ package mahp.digimon.models
 
 import mahp.digimon.enums.CardType
 import mahp.digimon.enums.Color
+import java.time.LocalDateTime
 
 class CardDTO(
     val name: String,
@@ -13,7 +14,7 @@ class CardDTO(
     val lowerText: String,
     val level: Int? = null,
 ){
-    fun toJPA(): Card = Card(
+    fun toR2DBC(): Card = Card(
         null,
         name,
         code,
@@ -23,5 +24,6 @@ class CardDTO(
         mainText,
         lowerText,
         level,
+        LocalDateTime.now(),
     )
 }

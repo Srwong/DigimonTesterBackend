@@ -5,11 +5,12 @@ import mahp.digimon.enums.Color
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
+import java.time.LocalDateTime
 
 @Table("card")
 data class Card (
     @Id
-    val id: Int? = 0,
+    val id: Int? = null, //if this is null webflux inserts, otherwise updates
     val name: String,
     val code: String,
     val color: String,
@@ -21,6 +22,10 @@ data class Card (
     @Column
     val lowerText: String,
     val level: Int? = null,
+    val createdAt: LocalDateTime = LocalDateTime.now(),
 ) {
-    constructor() : this(0, "", "", Color.RED.name, CardType.DIGIMON.name, 0, "", "", null)
+    constructor() : this(
+        null, "", "", Color.RED.name, CardType.DIGIMON.name,
+        0, "", "", null, LocalDateTime.now(),
+    )
 }

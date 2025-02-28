@@ -11,17 +11,34 @@ import reactor.core.publisher.Mono
 class CardService(
     private val cardInterface: CardInterface,
 ) {
-    fun getAllCards(): Flux<Card> {
-        return cardInterface.findAll()
+    fun getAllCards(
+        name: String?,
+        color: String?,
+        type: String?,
+        memoryCost: Int?,
+        mainText: String?,
+        lowerText: String?,
+        level: Int?,
+        expansion: String?,
+        page: Int,
+        elements: Int,
+    ): Flux<Card> {
+        return cardInterface.findAllWithFilters(
+            name, color, type, memoryCost, mainText, lowerText, level, expansion, page, elements
+        )
     }
 
     fun addCard(card: CardDTO): Mono<String> {
-        return cardInterface.save(card.toJPA())
-            .map { _ -> "ok" }
+        return cardInterface.save(card.toR2DBC())
+            .map { _ -> "Created card ${card.name}" }
             .onErrorResume {
                     ex ->
                 println("Error in addCard: ${ex.message}")
                 Mono.just(ex.message.toString())
             }
+    }
+
+    fun getCardByCode(code: String): Mono<Card> {
+        return cardInterface.findCardByCode(code)
     }
 }
