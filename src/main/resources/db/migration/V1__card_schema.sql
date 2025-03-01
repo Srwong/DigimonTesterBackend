@@ -1,4 +1,4 @@
-CREATE TABLE card (
+CREATE TABLE cards (
     id SERIAL PRIMARY KEY,
     name VARCHAR(40),
     code VARCHAR(10),
