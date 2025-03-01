@@ -1,11 +1,14 @@
-CREATE TABLE card_types(
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(7)
+CREATE TABLE colors(
+                       id SERIAL PRIMARY KEY,
+                       name VARCHAR(6)
 );
 
-INSERT INTO card_types(name)
+INSERT INTO colors (name)
 VALUES
-    ( 'tamer'),
-    ('digimon'),
-    ('egg'),
-    ('option');
+    ('red'),
+    ('blue'),
+    ('yellow'),
+    ('purple'),
+    ('green'),
+    ('black'),
+    ('white');
