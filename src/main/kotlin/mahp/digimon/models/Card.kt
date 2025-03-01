@@ -7,7 +7,7 @@ import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
 
-@Table("card")
+@Table("cards")
 data class Card (
     @Id
     val id: Int? = null, //if this is null webflux inserts, otherwise updates

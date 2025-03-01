@@ -49,8 +49,10 @@ class CardController(
     }
 
     @GetMapping("/{cardCode}")
-    fun getCardByCode(@PathVariable cardCode: String): Mono<Card> {
-        return cardService.getCardByCode(cardCode)
+    fun getCardByCode(@PathVariable cardCode: String): Mono<ResponseEntity<Card?>> {
+        return cardService.getCardByCode(cardCode).map {
+            ResponseEntity.ok().body(it)
+        }.defaultIfEmpty(ResponseEntity.notFound().build())
     }
 
     @DeleteMapping("/{cardCode}")

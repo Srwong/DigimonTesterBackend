@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono
 interface CardInterface: ReactiveCrudRepository<Card, Int> {
     @Query(value =
         """
-            SELECT * FROM card as c
+            SELECT * FROM cards as c
             WHERE
                 (:name IS NULL OR c.name LIKE '%' || :name || '%') AND
                 (:color IS NULL OR c.color = :color) AND
@@ -43,7 +43,7 @@ interface CardInterface: ReactiveCrudRepository<Card, Int> {
 
     @Query( value =
         """
-             SELECT * FROM card as c
+             SELECT * FROM cards as c
              WHERE c.code = :code
         """
     )
@@ -53,7 +53,7 @@ interface CardInterface: ReactiveCrudRepository<Card, Int> {
 
     @Query( value =
     """
-        DELETE FROM card as c
+        DELETE FROM cards as c
         WHERE c.code = :code
     """)
     fun deleteByCode(

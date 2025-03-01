@@ -1,4 +1,4 @@
-INSERT INTO card(name, code, memory_cost, evolution_cost, color, type, main_text, lower_text, level)
+INSERT INTO cards(name, code, memory_cost, evolution_cost, color, type, main_text, lower_text, level)
 VALUES
     ( 'card 1', 'BT02-100a', 3, 3,'GREEN','DIGIMON','some main text','inheritance effect',3),
     ( 'card 2', 'BT02-100', 3, null,'GREEN','TAMER','some main text2',null,3),
