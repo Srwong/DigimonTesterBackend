@@ -18,6 +18,7 @@ interface CardInterface: ReactiveCrudRepository<Card, Int> {
                 (:color IS NULL OR c.color = :color) AND
                 (:type IS NULL OR c.type = :type) AND
                 (:memory_cost IS NULL OR c.memory_cost = :memory_cost) AND
+                (:evolution_cost IS NULL OR c.evolution_cost = :evolution_cost) AND
                 (:main_text IS NULL OR c.main_text LIKE '%' || :main_text ||'%') AND
                 (:lower_text IS NULL OR c.lower_text LIKE '%' || :lower_text || '%') AND
                 (:level IS NULL OR c.level = :level) AND
@@ -31,6 +32,7 @@ interface CardInterface: ReactiveCrudRepository<Card, Int> {
         @Param("color") color: String?,
         @Param("type") type: String?,
         @Param("memory_cost") memoryCost: Int?,
+        @Param("evolution_cost") evolutionCost: Int?,
         @Param("main_text") mainText: String?,
         @Param("lower_text") lowerText: String?,
         @Param("level") level: Int?,

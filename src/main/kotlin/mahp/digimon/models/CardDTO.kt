@@ -10,8 +10,9 @@ class CardDTO(
     val color: String,
     val type: String,
     val memoryCost: Int,
+    val evolutionCost: Int?,
     val mainText: String,
-    val lowerText: String,
+    val lowerText: String?,
     val level: Int? = null,
 ){
     fun toR2DBC(): Card = Card(
@@ -21,6 +22,7 @@ class CardDTO(
         color = Color.fromString(color).name,
         type = CardType.fromString(type).name,
         memoryCost,
+        evolutionCost,
         mainText,
         lowerText,
         level,

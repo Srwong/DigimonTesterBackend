@@ -17,15 +17,16 @@ data class Card (
     val type: String,
     @Column
     val memoryCost: Int,
+    val evolutionCost: Int?,
     @Column
     val mainText: String,
     @Column
-    val lowerText: String,
+    val lowerText: String? = null,
     val level: Int? = null,
     val createdAt: LocalDateTime = LocalDateTime.now(),
 ) {
     constructor() : this(
         null, "", "", Color.RED.name, CardType.DIGIMON.name,
-        0, "", "", null, LocalDateTime.now(),
+        0, null,"", "", null, LocalDateTime.now(),
     )
 }
