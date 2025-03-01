@@ -16,6 +16,7 @@ class CardService(
         color: String?,
         type: String?,
         memoryCost: Int?,
+        evolutionCost: Int?,
         mainText: String?,
         lowerText: String?,
         level: Int?,
@@ -24,7 +25,7 @@ class CardService(
         elements: Int,
     ): Flux<Card> {
         return cardInterface.findAllWithFilters(
-            name, color, type, memoryCost, mainText, lowerText, level, expansion, page, elements
+            name, color, type, memoryCost, evolutionCost, mainText, lowerText, level, expansion, page, elements
         )
     }
 
