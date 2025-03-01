@@ -42,4 +42,8 @@ class CardService(
     fun getCardByCode(code: String): Mono<Card> {
         return cardInterface.findCardByCode(code)
     }
+
+    fun deleteByCode(code: String): Mono<Void> {
+        return cardInterface.deleteByCode(code)
+    }
 }

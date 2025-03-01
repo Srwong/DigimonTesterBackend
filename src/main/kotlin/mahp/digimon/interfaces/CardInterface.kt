@@ -50,4 +50,13 @@ interface CardInterface: ReactiveCrudRepository<Card, Int> {
     fun findCardByCode(
         @Param("code") code: String
     ): Mono<Card>
+
+    @Query( value =
+    """
+        DELETE FROM card as c
+        WHERE c.code = :code
+    """)
+    fun deleteByCode(
+        @Param("code") code: String
+    ): Mono<Void>
 }

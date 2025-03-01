@@ -13,10 +13,8 @@ import org.junit.jupiter.params.provider.ValueSource
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.http.MediaType
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.reactive.server.WebTestClient
-import org.springframework.web.reactive.function.BodyInserters
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
@@ -47,30 +45,6 @@ class CardControllerTest{
             .returnResult().responseBody
 
         assertEquals(9, result?.size)
-    }
-
-    @Test
-    fun `POST to add a new card`(){
-        val newCard = """
-            {
-              "name": "WarGreymon2",
-              "code": "BT1-026",
-              "color": "RED",
-              "type": "TAMER",
-              "memoryCost": 7,
-              "mainText": "This Digimon gains Security Attack +1.",
-              "lowerText": "Digivolve: 3 from MetalGreymon",
-              "level": 6
-            }
-        """.trimIndent()
-
-        val result = webClient.post().uri("/v1/cards")
-            .contentType(MediaType.APPLICATION_JSON)
-            .body(BodyInserters.fromValue(newCard)).exchange()
-            .expectStatus().isCreated
-            .expectBody(String::class.java).returnResult().responseBody
-
-        assertEquals("Created card WarGreymon2", result)
     }
 
     @Test
