@@ -6,8 +6,9 @@ CREATE TABLE cards (
     evolution_cost INT,
     color VARCHAR(6),
     type VARCHAR(7),
-    main_text VARCHAR(150),
-    lower_text VARCHAR(150),
+    main_text TEXT,
+    lower_text TEXT,
     level INT,
+    release_day TIMESTAMP,
     created_at TIMESTAMP DEFAULT NOW()
 );

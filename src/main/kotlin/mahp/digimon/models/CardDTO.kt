@@ -2,6 +2,7 @@ package mahp.digimon.models
 
 import mahp.digimon.enums.CardType
 import mahp.digimon.enums.Color
+import java.time.LocalDate
 import java.time.LocalDateTime
 
 class CardDTO(
@@ -14,6 +15,7 @@ class CardDTO(
     val mainText: String,
     val lowerText: String?,
     val level: Int? = null,
+    val releaseDay: LocalDate?,
 ){
     fun toR2DBC(): Card = Card(
         null,
@@ -26,6 +28,7 @@ class CardDTO(
         mainText,
         lowerText,
         level,
+        releaseDay,
         LocalDateTime.now(),
     )
 }

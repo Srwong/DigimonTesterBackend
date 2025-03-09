@@ -23,7 +23,7 @@ interface CardInterface: ReactiveCrudRepository<Card, Int> {
                 (:lower_text IS NULL OR c.lower_text LIKE '%' || :lower_text || '%') AND
                 (:level IS NULL OR c.level = :level) AND
                 (:expansion IS NULL OR c.code LIKE '%' || :expansion || '%')
-            ORDER BY c.created_at DESC
+            ORDER BY c.release_day DESC
             LIMIT :elements
             OFFSET :page * :elements
         """)
@@ -45,6 +45,7 @@ interface CardInterface: ReactiveCrudRepository<Card, Int> {
         """
              SELECT * FROM cards as c
              WHERE c.code = :code
+             LIMIT 1
         """
     )
     fun findCardByCode(
