@@ -12,7 +12,8 @@ class CardHelper {
         mainText = "This Digimon gains Security Attack +1.",
         lowerText = "Digivolve: 3 from MetalGreymon",
         level = 6,
-        evolutionCost = 6
+        evolutionCost = 6,
+        releaseDay = null
     )
 
     fun toJson(card: CardDTO) = """
