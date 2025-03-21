@@ -1,6 +1,6 @@
 package mahp.digimon.helpers
 
-import mahp.digimon.models.CardDTO
+import mahp.digimon.models.dto.CardDTO
 
 class CardHelper {
     fun newCard() = CardDTO(

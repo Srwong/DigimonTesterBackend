@@ -4,6 +4,7 @@ CREATE TABLE decks (
     owner_id INT NOT NULL,
     main_deck TEXT,
     eggs_deck CHAR(60),
+    created_at TIMESTAMP DEFAULT NOW(),
     CONSTRAINT fk_owner
         FOREIGN KEY (owner_id)
             REFERENCES users(id)
