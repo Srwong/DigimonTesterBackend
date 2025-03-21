@@ -1,7 +1,8 @@
-package mahp.digimon.models
+package mahp.digimon.models.dto
 
 import mahp.digimon.enums.CardType
 import mahp.digimon.enums.Color
+import mahp.digimon.models.Card
 import java.time.LocalDate
 import java.time.LocalDateTime
 

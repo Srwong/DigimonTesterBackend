@@ -2,7 +2,7 @@ package mahp.digimon.services
 
 import mahp.digimon.interfaces.CardInterface
 import mahp.digimon.models.Card
-import mahp.digimon.models.CardDTO
+import mahp.digimon.models.dto.CardDTO
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono

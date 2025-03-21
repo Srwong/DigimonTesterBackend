@@ -1,10 +1,9 @@
 package mahp.digimon.controllers
 
 import mahp.digimon.models.Card
-import mahp.digimon.models.CardDTO
+import mahp.digimon.models.dto.CardDTO
 import mahp.digimon.services.CardService
 import org.springframework.http.HttpStatus
-import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
